@@ -286,23 +286,6 @@ def package_arg(f):
     )(f)
 
 
-def three_option(f):
-    def callback(ctx, param, value):
-        state = ctx.ensure_object(State)
-        if value is not None:
-            state.three = value
-        return value
-
-    return option(
-        "--three",
-        is_flag=True,
-        default=None,
-        help="Use Python 3 when creating virtualenv.",
-        callback=callback,
-        expose_value=False,
-    )(f)
-
-
 def python_option(f):
     def callback(ctx, param, value):
         state = ctx.ensure_object(State)
@@ -536,7 +519,6 @@ def common_options(f):
     f = verbose_option(f)
     f = quiet_option(f)
     f = clear_option(f)
-    f = three_option(f)
     f = python_option(f)
     return f
 

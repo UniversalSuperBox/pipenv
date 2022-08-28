@@ -19,7 +19,6 @@ from pipenv.cli.options import (
     skip_lock_option,
     sync_options,
     system_option,
-    three_option,
     uninstall_options,
     verbose_option,
 )
@@ -360,7 +359,6 @@ def lock(ctx, state, **kwargs):
 )
 @argument("shell_args", nargs=-1)
 @pypi_mirror_option
-@three_option
 @python_option
 @pass_state
 def shell(
@@ -664,7 +662,6 @@ def sync(ctx, state, bare=False, user=False, unused=False, **kwargs):
 @option("--bare", is_flag=True, default=False, help="Minimal output.")
 @option("--dry-run", is_flag=True, default=False, help="Just output unneeded packages.")
 @verbose_option
-@three_option
 @python_option
 @pass_state
 def clean(state, dry_run=False, bare=False, user=False):
